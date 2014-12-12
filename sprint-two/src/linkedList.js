@@ -29,27 +29,25 @@ var LinkedList = function(){
   list.contains = function(target){
     var currentNode = list.head;
     var found = false;
-    var check = function(){
+
+    while ( currentNode !== list.tail) {
       if (currentNode.value === target) {
         found = true;
       }
-    };
-
-    while ( currentNode !== list.tail ) {
-      check();
-      if (!found) {
-        currentNode = currentNode.next;
-      }
+              currentNode = currentNode.next;
     }
 
     if (currentNode === list.tail && list.tail !== null) {
-      check();
+      if (currentNode.value === target) {
+        found = true;
+      }
     }
 
     return found;
   };
 
   return list;
+
 };
 
 var Node = function(value){
